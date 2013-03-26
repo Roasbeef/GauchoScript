@@ -1,9 +1,10 @@
-# Gauchospace Lasso
+# GauchoSpace-Enhancement-Suite (GES)
 
 This Google Chrome extension is for Gauchospace, a Moodle installation in use
 by UCSB students.
 
-It provides five pieces of functionality that I find useful. 
+It current five pieces of functionality, with more features coming in the near
+future.
 
 * No more "Your session has timed out.  Please login again.". If the form has
   been autofilled and if that message appears then the extension will
