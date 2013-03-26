@@ -5,10 +5,10 @@
 
     GES = {
       autoLogin: function() {
-        var $autofill, $error_msg, auto_msg;
+        var $auto_fill, $error_msg, auto_msg;
 
-        $autofill = $('input:-webkit-autofill');
-        if (autofill.length) {
+        $auto_fill = $('input:-webkit-autofill');
+        if ($auto_fill.length) {
           auto_msg = 'Auto-Logging In';
           $error_msg = $('span[class="error"]').first();
           if ($error_msg.text().search("Please login again.")) {
@@ -25,7 +25,7 @@
           link = _ref[_i];
           link.removeAttribute('onclick');
           new_url = link.href.concat('&inpopup=true');
-          link.attr('href', new_url);
+          $(link).attr('href', new_url);
         }
         $separator = $('.section.separator').first().clone();
         $current_week = $('.current').first();
@@ -50,39 +50,39 @@
         $left_col = $('#left-column > div');
         $right_col = $('#right-column > div');
         return $left_col.scrollToFixed({
-          limit: $('#footer').offset().top - left_column.outerHeight()
+          limit: $('#footer').offset().top - $left_col.outerHeight()
         });
       },
       addQuickList: function() {
-        var $left_col, $quick_list, link, new_link, new_link_item, short_name, _i, _len, _ref;
+        var $left_col, $new_link, $new_link_item, $quick_list, link, short_name, _i, _len, _ref;
 
         $left_col = $('#left-column');
         $quick_list = $('<ul>', {
           "class": 'list'
         });
-        _ref = '.name > a';
+        _ref = $('.name > a');
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           link = _ref[_i];
           short_name = link.text.split(' (')[0];
-          new_link = $(link).clone();
-          new_link.text(short_name);
-          new_link_item = new_link.wrap('<li>').parent();
-          $quick_list.append(new_link_item);
+          $new_link = $(link).clone();
+          $new_link.text(short_name);
+          $new_link_item = $new_link.wrap('<li>').parent();
+          $quick_list.append($new_link_item);
         }
-        $quick_list = quick_list.wrap($('<div>', {
+        $quick_list = $quick_list.wrap($('<div>', {
           'class': 'content'
         })).parent();
-        $quick_list = quick_list.wrap($('<div>', {
+        $quick_list = $quick_list.wrap($('<div>', {
           'class': 'sideblock'
         })).parent();
         $quick_list.prepend($('<div>', {
           'class': 'header',
           'text': 'QuickClick Menu'
         }));
-        $quick_list = quick_list.wrap($('<div>', {
+        $quick_list = $quick_list.wrap($('<div>', {
           "class": "quickclick"
         })).parent();
-        $quick_list = quick_list.wrap($('<div>')).parent();
+        $quick_list = $quick_list.wrap($('<div>')).parent();
         $quick_list.prependTo($left_col);
         return localStorage["quicklist"] = escape($quick_list.html());
       },

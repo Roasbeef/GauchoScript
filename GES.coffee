@@ -1,8 +1,8 @@
 $(()->
   GES =
     autoLogin: () ->
-      $autofill = $('input:-webkit-autofill')
-      if autofill.length
+      $auto_fill = $('input:-webkit-autofill')
+      if $auto_fill.length
         auto_msg = 'Auto-Logging In'
         $error_msg = $('span[class="error"]').first()
         if $error_msg.text().search("Please login again.")
@@ -16,7 +16,7 @@ $(()->
         link.removeAttribute('onclick')
         # direct link to the page
         new_url = link.href.concat('&inpopup=true')
-        link.attr('href', new_url)
+        $(link).attr('href', new_url)
 
       # Add faux current week
       $separator = $('.section.separator').first().clone()
@@ -46,25 +46,25 @@ $(()->
       $left_col = $('#left-column > div')
       $right_col = $('#right-column > div')
 
-      $left_col.scrollToFixed limit: $('#footer').offset().top - left_column.outerHeight()
+      $left_col.scrollToFixed limit: $('#footer').offset().top - $left_col.outerHeight()
 
     addQuickList: () ->
       $left_col = $('#left-column')
       $quick_list = $('<ul>', class: 'list')
 
-      for link in ('.name > a')
+      for link in $('.name > a')
         short_name = link.text.split(' (')[0]
-        new_link = $(link).clone()
+        $new_link = $(link).clone()
 
-        new_link.text(short_name)
-        new_link_item = new_link.wrap('<li>').parent()
-        $quick_list.append new_link_item
+        $new_link.text(short_name)
+        $new_link_item = $new_link.wrap('<li>').parent()
+        $quick_list.append $new_link_item
 
-      $quick_list = quick_list.wrap($('<div>', {'class':'content'})).parent()
-      $quick_list = quick_list.wrap($('<div>', {'class':'sideblock'})).parent()
+      $quick_list = $quick_list.wrap($('<div>', {'class':'content'})).parent()
+      $quick_list = $quick_list.wrap($('<div>', {'class':'sideblock'})).parent()
       $quick_list.prepend($('<div>', {'class': 'header', 'text': 'QuickClick Menu'}))
-      $quick_list = quick_list.wrap($('<div>', {"class":"quickclick"})).parent()
-      $quick_list = quick_list.wrap($('<div>')).parent()
+      $quick_list = $quick_list.wrap($('<div>', {"class":"quickclick"})).parent()
+      $quick_list = $quick_list.wrap($('<div>')).parent()
       $quick_list.prependTo($left_col)
 
       localStorage["quicklist"] = escape $quick_list.html()
