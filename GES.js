@@ -91,10 +91,10 @@
 
         $quick_list = $(unescape(localStorage["quicklist"]));
         $quick_list.find('.header').wrapInner($('<h3>'));
-        $(quick_list).append('<p>If this menu is out of date, <a href="https://gauchospace.ucsb.edu/courses/">visit the <span class="mycoursebutton">My Courses</span> page while logged in to refresh</a>.</p>');
-        $(quick_list).append("<p>This is cached from the last logged in user. If auto-login works for you, clicking will auto-log you in through these links if you were logged out from inactivity.</p>");
-        $(quick_list).append("<p>If you have an issue with this extension, please make an account on <a href='http://github.com'>Github</a> and submit an issue <a href='https://github.com/Roasbeef/GauchoSpace-Enhancement-Suite/issues'>here</a>.");
-        return $("#left > a").after(quick_list);
+        $quick_list.append('<p>If this menu is out of date, <a href="https://gauchospace.ucsb.edu/courses/">visit the <span class="mycoursebutton">My Courses</span> page while logged in to refresh</a>.</p>');
+        $quick_list.append("<p>This is cached from the last logged in user. If auto-login works for you, clicking will auto-log you in through these links if you were logged out from inactivity.</p>");
+        $quick_list.append("<p>If you have an issue with this extension, please make an account on <a href='http://github.com'>Github</a> and submit an issue <a href='https://github.com/Roasbeef/GauchoSpace-Enhancement-Suite/issues'>here</a>.");
+        return $("#left > a").after($quick_list);
       }
     };
     switch (window.location.pathname) {
@@ -112,7 +112,7 @@
         GES.addCachedQuickList();
     }
     return $('#menubar').prepend('<li><a href="//gauchospace.ucsb.edu">Front');
-  })(window, document, jQuery);
+  });
 
 }).call(this);
 
