@@ -18,15 +18,21 @@
         }
       },
       directLinkify: function() {
-        var $current_week, $faux_week, $go_to_context, $left_col, $right_col, $separator, link, new_url, _i, _len, _ref;
+        var link, new_url, _i, _len, _ref, _results;
 
         _ref = $('.activity.resource > a');
+        _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           link = _ref[_i];
           link.removeAttribute('onclick');
           new_url = link.href.concat('&inpopup=true');
-          $(link).attr('href', new_url);
+          _results.push($(link).attr('href', new_url));
         }
+        return _results;
+      },
+      addFauxCurrentWeek: function() {
+        var $current_week, $faux_week, $go_to_context, $left_col, $right_col, $separator;
+
         $separator = $('.section.separator').first().clone();
         $current_week = $('.current').first();
         $faux_week = $current_week.clone();
@@ -49,8 +55,11 @@
         $('.fauxWeek .weekdates').before($go_to_context);
         $left_col = $('#left-column > div');
         $right_col = $('#right-column > div');
-        return $left_col.scrollToFixed({
+        $left_col.scrollToFixed({
           limit: $('#footer').offset().top - $left_col.outerHeight()
+        });
+        return $right_col.scrollToFixed({
+          limit: $('#footer').offset().top - $right_col.outerHeight()
         });
       },
       addQuickList: function() {
@@ -104,6 +113,7 @@
         break;
       case "/courses/course/view.php":
         GES.directLinkify();
+        GES.addFauxCurrentWeek();
         break;
       case "/courses/":
         GES.addQuickList();

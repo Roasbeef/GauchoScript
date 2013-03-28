@@ -11,6 +11,8 @@ $(()->
             $("<div class='subcontent autologinsub'><h1>#{auto_msg}</h1></div>"))
 
     directLinkify: () ->
+      # Make links into direct links
+      # instead of giving a prompt in a new window
       for link in $('.activity.resource > a')
         # disable click event
         link.removeAttribute('onclick')
@@ -18,6 +20,7 @@ $(()->
         new_url = link.href.concat('&inpopup=true')
         $(link).attr('href', new_url)
 
+    addFauxCurrentWeek: () ->
       # Add faux current week
       $separator = $('.section.separator').first().clone()
       $current_week = $('.current').first()
@@ -27,7 +30,8 @@ $(()->
       $('.weeks tbody').prepend $faux_week
       $faux_week.after $separator
 
-      # Jump to Context
+      # Add button to scroll down to the 
+      # actual week on click
       $go_to_context = $('<h3 class="goto-context">Go To Context</h3>')
       $go_to_context.on 'click', () ->
         $window = $(window)
@@ -46,7 +50,9 @@ $(()->
       $left_col = $('#left-column > div')
       $right_col = $('#right-column > div')
 
+      # Make the left and right side bars fixed until you scroll to footer
       $left_col.scrollToFixed limit: $('#footer').offset().top - $left_col.outerHeight()
+      $right_col.scrollToFixed limit: $('#footer').offset().top - $right_col.outerHeight()
 
     addQuickList: () ->
       $left_col = $('#left-column')
@@ -81,14 +87,17 @@ $(()->
 
   switch window.location.pathname
     when "/courses/login/", "/courses/login/index.php"
-      #Auto relogin if timed out.
+      # Auto relogin if timed out.
       GES.autoLogin()
     when "/courses/course/view.php"
       # directLinkify all doc URLS
-      # Prepend a clone of current week to top
-      # Position-fixed the sidebars
       GES.directLinkify()
+      # Prepend a clone of current week to top
+      GES.addFauxCurrentWeek()
     when "/courses/"
+      # Create and add side bar with
+      # buttons that allow easy access
+      # to currently enrolled classes
       GES.addQuickList()
     when "/"
       GES.addCachedQuickList()
