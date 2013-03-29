@@ -85,22 +85,22 @@ $(()->
       $("#left > a").after($quick_list)
 
 
-  switch window.location.pathname
-    when "/courses/login/", "/courses/login/index.php"
-      # Auto relogin if timed out.
-      GES.autoLogin()
-    when "/courses/course/view.php"
-      # directLinkify all doc URLS
-      GES.directLinkify()
-      # Prepend a clone of current week to top
-      GES.addFauxCurrentWeek()
-    when "/courses/"
-      # Create and add side bar with
-      # buttons that allow easy access
-      # to currently enrolled classes
-      GES.addQuickList()
-    when "/"
-      GES.addCachedQuickList()
+  current_path = window.location.pathname
+  if current_path.match(/\/courses\/login\//)
+    # Auto relogin if timed out.
+    GES.autoLogin()
+  else if current_path is "/courses/course/view.php"
+    # directLinkify all doc URLS
+    GES.directLinkify()
+    # Prepend a clone of current week to top
+    GES.addFauxCurrentWeek()
+  else if current_path is "/courses/"
+    # Create and add side bar with
+    # buttons that allow easy access
+    # to currently enrolled classes
+    GES.addQuickList()
+  else if current_path is "/"
+    GES.addCachedQuickList()
 
   $('#menubar').prepend('<li><a href="//gauchospace.ucsb.edu">Front')
 
