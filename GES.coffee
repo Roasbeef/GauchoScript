@@ -1,5 +1,5 @@
 $(()->
-  GES =
+  GES = do () ->
     autoLogin: () ->
       $auto_fill = $('input:-webkit-autofill')
       if $auto_fill.length
@@ -10,12 +10,12 @@ $(()->
           $('.subcontent.loginsub').after(
             $("<div class='subcontent autologinsub'><h1>#{auto_msg}</h1></div>"))
 
-    directLinkify: () ->
+    directLinkify: (anchor_selector) ->
       # Make links into direct links
       # instead of giving a prompt in a new window
-      for link in $('.activity.resource > a')
+      for link in $(anchor_selector)
         # disable click event
-        link.removeAttribute('onclick')
+        $(link).attr('onclick', '')
         # direct link to the page
         new_url = link.href.concat('&inpopup=true')
         $(link).attr('href', new_url)
@@ -91,7 +91,7 @@ $(()->
     GES.autoLogin()
   else if current_path is "/courses/course/view.php"
     # directLinkify all doc URLS
-    GES.directLinkify()
+    GES.directLinkify('.activity.resource > a')
     # Prepend a clone of current week to top
     GES.addFauxCurrentWeek()
   else if current_path is "/courses/"
