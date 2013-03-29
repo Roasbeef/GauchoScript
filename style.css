@@ -1,67 +1,52 @@
 .quickclick li {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 30px;
-    list-style: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  list-style: none;
 }
-
-.quickclick li a{
-    border-radius: 5px;
-    background-color: #2F65A5;
-    /* color: #FFCC01; */
-    color: #FFDD56;
-    padding: 5px 12.5px;
-    font-weight: bold;
-    box-shadow: inset 3px 3px 15px white,
-                inset -3px -3px 10px black ;
-    text-shadow: 2px 2px 3px black;
+.quickclick li a {
+  border-radius: 5px;
+  background-color: #2f65a5;
+  color: #ffdd56;
+  padding: 5px 12.5px;
+  font-weight: bold;
+  box-shadow: inset 3px 3px 15px #ffffff, inset -3px -3px 10px #000000;
+  text-shadow: 2px 2px 3px black;
 }
-
+.quickclick li a:hover {
+  color: red;
+}
 .mycoursebutton {
-    border-radius: 3px;
-    background-color: #2F65A5;
-    /* color: #FFCC01; */
-    color: #FFDD56;
-    padding: 2.5px 6px;
-    font-weight: bold;
-    box-shadow: inset 1.5px 1.5px 7.5px white,
-                inset -1.5px -1.5px 5px black ;
-    text-shadow: 2px 2px 3px black;
+  border-radius: 3px;
+  background-color: #2f65a5;
+  color: #ffdd56;
+  padding: 2.5px 6px;
+  font-weight: bold;
+  box-shadow: inset 1.5px 1.5px 7.5px #ffffff, inset -1.5px -1.5px 5px #000000;
+  text-shadow: 2px 2px 3px black;
 }
-
-.quickclick li a:hover{
-    color: red;
-}
-
 .fauxWeek {
-    border-width: 5px;
-    border-style: solid;
+  border-width: 5px;
+  border-style: solid;
 }
-
-#left .quickclick ul {
-    padding: 0;
-    margin-left: 0;
-}
-
-.subcontent.autologinsub {
-    background-color: #FAFFBD;
-}
-
 .fauxWeek .goto-context {
-    text-align: center;
-    border-radius: 5px;
-    background-color: #2F65A5;
-    /* color: #FFCC01; */
-    color: #FFDD56;
-    padding: 5px 12.5px;
-    font-weight: bold;
-    box-shadow: inset 3px 3px 15px white,
-                inset -3px -3px 10px black ;
-    text-shadow: 2px 2px 3px black;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #2f65a5;
+  color: #ffdd56;
+  padding: 5px 12.5px;
+  font-weight: bold;
+  box-shadow: inset 3px 3px 15px #ffffff, inset -3px -3px 10px #000000;
+  text-shadow: 2px 2px 3px black;
 }
-
 .fauxWeek .goto-context:hover {
-    color: red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }
-
+#left .quickclick ul {
+  padding: 0;
+  margin-left: 0;
+}
+.subcontent.autologinsub {
+  background-color: #ffdd56;
+}

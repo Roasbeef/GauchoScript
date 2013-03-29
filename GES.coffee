@@ -106,5 +106,4 @@ $(()->
     GES.addCachedQuickList()
 
   $('#menubar').prepend '<li><a href="//gauchospace.ucsb.edu">Front'
-
 )

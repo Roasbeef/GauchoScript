@@ -1,0 +1,50 @@
+@gaucho-blue: #2F65A5;
+@gaucho-yellow: #FFDD56;
+
+.gaucho-button(@radius, @vertical-padding, @horizontal-padding, @shadow-scale: 1) {
+    border-radius: @radius;
+    background-color: @gaucho-blue;
+    color: @gaucho-yellow;
+    padding: @vertical-padding @horizontal-padding;
+    font-weight: bold;
+    box-shadow: inset (3px/@shadow-scale) (3px/@shadow-scale) (15px/@shadow-scale) white,
+                inset (-3px/@shadow-scale) (-3px/@shadow-scale) (10px/@shadow-scale) black;
+    text-shadow: 2px 2px 3px black;
+}
+
+.quickclick { 
+    li {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        list-style: none;
+        a {
+            .gaucho-button(5px, 5px, 12.5px);
+            &:hover { color: red; }
+        }
+    }
+}
+
+.mycoursebutton {
+    .gaucho-button(3px, 2.5px, 6px, 2);
+}
+
+.fauxWeek {
+    border-width: 5px;
+    border-style: solid;
+
+    .goto-context {
+        text-align: center;
+        .gaucho-button(5px, 5px, 12.5px);
+        &:hover { color: red; cursor: pointer; }
+    }
+}
+
+#left .quickclick ul {
+    padding: 0;
+    margin-left: 0;
+}
+
+.subcontent.autologinsub {
+    background-color: @gaucho-yellow;
+}
