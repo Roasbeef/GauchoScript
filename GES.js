@@ -111,6 +111,8 @@
     current_path = window.location.pathname;
     if (current_path.match(/\/courses\/login\//)) {
       GES.autoLogin();
+    } else if (current_path.match(/\/courses\/mod\/resource\//)) {
+      GES.directLinkify('.generaltable .c1 a');
     } else if (current_path === "/courses/course/view.php") {
       GES.directLinkify('.activity.resource > a');
       GES.addFauxCurrentWeek();

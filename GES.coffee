@@ -89,6 +89,8 @@ $(()->
   if current_path.match(/\/courses\/login\//)
     # Auto relogin if timed out.
     GES.autoLogin()
+  else if current_path.match(/\/courses\/mod\/resource\//)
+    GES.directLinkify('.generaltable .c1 a')
   else if current_path is "/courses/course/view.php"
     # directLinkify all doc URLS
     GES.directLinkify('.activity.resource > a')
@@ -100,6 +102,7 @@ $(()->
     # to currently enrolled classes
     GES.addQuickList()
   else if current_path is "/"
+    # Add cached Quicklist to index page
     GES.addCachedQuickList()
 
   $('#menubar').prepend('<li><a href="//gauchospace.ucsb.edu">Front')
