@@ -37,13 +37,13 @@ $(()->
         $window = $(window)
         view_port_width = $window.width()
         view_port_height = $window.height()
-        $real_current_week = $('.realCurrentWeek').first()
-        el_width = $realCurrentWeek.width()
-        el_height = $realCurrentWeek.height()
-        el_offset = $realCurrentWeek.offset()
+        $real_current_week = $('.current').eq(1)
+        el_width = $real_current_week.width()
+        el_height = $real_current_week.height()
+        el_offset = $real_current_week.offset()
 
         $window.scrollTop(el_offset.top + (el_height/2) - (view_port_height/2))
-               .scrollLeftTop(el_offset.left + (el_width/2) - (view_port_width/2))
+               .scrollLeft(el_offset.left + (el_width/2) - (view_port_width/2))
 
       $('.fauxWeek .weekdates').before $go_to_context
 
