@@ -1,4 +1,4 @@
-# GauchoSpace-Enhancement-Suite (GES)
+# GauchoScript (GS)
 
 This Google Chrome extension is for Gauchospace, a Moodle installation in use
 by UCSB students.
